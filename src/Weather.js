@@ -5,6 +5,7 @@ import ConvertDate from "./ConvertDate";
 import WeatherIcon from "./WeatherIcon";
 import Spinner from "react-bootstrap/Spinner";
 import "./App.js";
+import Search from "./Search";
 
 export default class Weather extends Component {
   apiKey = "ee15d316bfe39b39eee6a79f1c1cd639";
@@ -41,30 +42,12 @@ export default class Weather extends Component {
     this.search(this.props.city);
   }
 
-  submit = event => {
-    event.preventDefault();
-    this.search(this.state.keywords);
-  };
-
-  updateKeywords = event => {
-    this.setState({
-      keywords: event.target.value
-    });
-  };
-
   render() {
     if (this.state.loaded) {
       return (
         <div>
           <h1 class="titleApp"> Nice Wether!</h1>
-          <form onSubmit={event => this.submit(event)}>
-            <input
-              type="text"
-              placeholder="Is it a nice weather in..."
-              className="p-2 mb-2 rounded border"
-              onChange={event => this.updateKeywords(event)}
-            />
-          </form>
+          <Search submit={this.search} />
 
           <h1>{this.state.weather.city}</h1>
           <ul>
