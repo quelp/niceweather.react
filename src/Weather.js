@@ -22,7 +22,8 @@ export default class Weather extends Component {
         temperature: Math.round(response.data.main.temp),
         icon: response.data.weather[0].icon,
         humidity: response.data.main.humidity,
-        wind: Math.round(response.data.wind.speed)
+        wind: Math.round(response.data.wind.speed),
+        timezone: response.data.timezone
       }
     });
   };
@@ -41,7 +42,10 @@ export default class Weather extends Component {
           <h1>{this.state.weather.city}</h1>
           <ul>
             <li>
-              <ConvertDate timestamp={this.state.weather.date} />
+              <ConvertDate
+                timestamp={this.state.weather.date}
+                timezone={this.state.weather.timezone}
+              />
             </li>
             <li>{this.state.weather.description}</li>
           </ul>
@@ -66,7 +70,7 @@ export default class Weather extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <h1>Loading... </h1>;
     }
   }
 }
