@@ -29,17 +29,41 @@ export default class Weather extends Component {
     });
   };
 
-  componentDidMount() {
+  search = city => {
     let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${this.props.city}&appid=${
       this.apiKey
     }&units=metric`;
     axios.get(apiUrl).then(this.showResults);
+  };
+
+  componentDidMount() {
+    this.search(this.props.city);
   }
+
+  submit = event => {
+    event.preventDefault();
+    this.search(this.state.keywords);
+  };
+
+  updateKeywords = event => {
+    this.setState({
+      keywords: event.target.value
+    });
+  };
 
   render() {
     if (this.state.loaded) {
       return (
         <div>
+          <form onSubmit={event => this.submit(event)}>
+            <input
+              type="text"
+              placeholder="Is it a nice weather in..."
+              className="p-2 mb-2 rounded"
+              onChange={event => this.updateKeywords(event)}
+            />
+          </form>
+
           <h1>{this.state.weather.city}</h1>
           <ul>
             <li>

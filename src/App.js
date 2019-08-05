@@ -8,8 +8,7 @@ export default class App extends Component {
       <div className="container">
         <div className="card m-3">
           <div className="card-body">
-            <Weather city="Paris" />
-            <Weather city="Rio de Janeiro" />
+            <Weather city="London" />
           </div>
         </div>
       </div>
