@@ -77,11 +77,10 @@ export default class Weather extends Component {
           <div className="row">
             <div className="col-sm-6 ">
               <div className="clearfix">
-                <WeatherIcon code={this.state.weather.icon} />
-
                 <div className="temperature float-left">
                   {this.state.weather.temperature}
                   <small>°C</small>
+                  <WeatherIcon code={this.state.weather.icon} />
                 </div>
               </div>
             </div>
