@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import ConvertDate from "./ConvertDate";
 import WeatherIcon from "./WeatherIcon";
+import Spinner from "react-bootstrap/Spinner";
 
 export default class Weather extends Component {
   apiKey = "ee15d316bfe39b39eee6a79f1c1cd639";
@@ -17,7 +18,7 @@ export default class Weather extends Component {
       loaded: true,
       weather: {
         date: response.data.dt,
-        timezone: response.data.sys.timezone,
+        timezone: response.data.timezone,
         city: response.data.name,
         description: response.data.weather[0].description,
         temperature: Math.round(response.data.main.temp),
@@ -70,7 +71,7 @@ export default class Weather extends Component {
         </div>
       );
     } else {
-      return <h1>Loading... </h1>;
+      return <Spinner animation="border" variant="info" className="loader" />;
     }
   }
 }

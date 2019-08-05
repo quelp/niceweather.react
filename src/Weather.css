@@ -42,3 +42,8 @@ li {
   font-size: 10px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+.loader {
+  margin: 3px;
+  box-align: center;
+}
