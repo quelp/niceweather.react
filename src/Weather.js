@@ -48,32 +48,38 @@ export default class Weather extends Component {
         <div>
           <h1 class="titleApp"> Nice Wether!</h1>
           <Search submit={this.search} />
-
-          <h1>{this.state.weather.city}</h1>
-          <ul>
-            <li>
-              <ConvertDate
-                timestamp={this.state.weather.date}
-                timezone={this.state.weather.timezone}
-              />
-            </li>
-            <li>{this.state.weather.description}</li>
-          </ul>
-          <div className="row">
-            <div className="col-sm-6 ">
-              <div className="clearfix">
-                <div className="temperature float-left">
-                  {this.state.weather.temperature}
-                  <small>°C</small>
-                  <WeatherIcon code={this.state.weather.icon} />
+          <div className="col-sm-6">
+            <ul>
+              <button type="submit" class="btn btn-info mb-2">
+                Search
+              </button>
+            </ul>
+            <h1>{this.state.weather.city}</h1>
+            <ul>
+              <li>
+                <ConvertDate
+                  timestamp={this.state.weather.date}
+                  timezone={this.state.weather.timezone}
+                />
+              </li>
+              <li>{this.state.weather.description}</li>
+            </ul>
+            <div className="row">
+              <div className="col-sm-6 ">
+                <div className="clearfix">
+                  <div className="temperature float-left">
+                    {this.state.weather.temperature}
+                    <small>°C</small>
+                    <WeatherIcon code={this.state.weather.icon} />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-sm-6">
-              <ul>
-                <li>Humidity: {this.state.weather.humidity}%</li>
-                <li>Wind: {this.state.weather.wind} km/h</li>
-              </ul>
+              <div className="col-sm-6">
+                <ul>
+                  <li>Humidity: {this.state.weather.humidity}%</li>
+                  <li>Wind: {this.state.weather.wind} km/h</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

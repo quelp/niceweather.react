@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default class WeatherIcon extends Component {
   iconUrl = () => {

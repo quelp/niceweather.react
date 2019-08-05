@@ -7,7 +7,7 @@ export default class App extends Component {
     return (
       <div>
         <div className="container">
-          <div className="card m-2">
+          <div className="card m-4">
             <div className="card-body">
               <Weather city="Rio de Janeiro" />
             </div>
