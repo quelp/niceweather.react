@@ -5,10 +5,12 @@ import Weather from "./Weather.js";
 export default class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="card m-2">
-          <div className="card-body">
-            <Weather city="London" />
+      <div>
+        <div className="container">
+          <div className="card m-2">
+            <div className="card-body">
+              <Weather city="Rio de Janeiro" />
+            </div>
           </div>
         </div>
       </div>

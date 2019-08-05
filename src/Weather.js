@@ -4,6 +4,7 @@ import "./Weather.css";
 import ConvertDate from "./ConvertDate";
 import WeatherIcon from "./WeatherIcon";
 import Spinner from "react-bootstrap/Spinner";
+import "./App.js";
 
 export default class Weather extends Component {
   apiKey = "ee15d316bfe39b39eee6a79f1c1cd639";
@@ -30,7 +31,7 @@ export default class Weather extends Component {
   };
 
   search = city => {
-    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${this.props.city}&appid=${
+    let apiUrl = `${this.apiRoot}/data/2.5/weather?q=${city}&appid=${
       this.apiKey
     }&units=metric`;
     axios.get(apiUrl).then(this.showResults);
@@ -55,11 +56,12 @@ export default class Weather extends Component {
     if (this.state.loaded) {
       return (
         <div>
+          <h1 class="titleApp"> Nice Wether!</h1>
           <form onSubmit={event => this.submit(event)}>
             <input
               type="text"
               placeholder="Is it a nice weather in..."
-              className="p-2 mb-2 rounded"
+              className="p-2 mb-2 rounded border"
               onChange={event => this.updateKeywords(event)}
             />
           </form>
