@@ -17,13 +17,13 @@ export default class Weather extends Component {
       loaded: true,
       weather: {
         date: response.data.dt,
+        timezone: response.data.sys.timezone,
         city: response.data.name,
         description: response.data.weather[0].description,
         temperature: Math.round(response.data.main.temp),
         icon: response.data.weather[0].icon,
         humidity: response.data.main.humidity,
-        wind: Math.round(response.data.wind.speed),
-        timezone: response.data.timezone
+        wind: Math.round(response.data.wind.speed)
       }
     });
   };
